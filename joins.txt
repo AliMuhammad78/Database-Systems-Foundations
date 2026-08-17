@@ -1,0 +1,100 @@
+ create database college ;
+ use college ; 
+  
+   create table student (
+   id int primary key,
+   name varchar(50) 
+   );
+    
+    insert into student 
+   (id, name   ) 
+   values 
+   (101, "ali"   ) ,
+    (102, "saagar"  ) ,
+    (103, "hamza"   ) ;
+    select * from student ; 
+    
+   
+create table course (
+id int primary key ,
+course varchar(50)  
+); 
+
+insert into course (id , course ) 
+ values (102 , "English" ) , 
+ (105 , "math") , 
+ (103 , "science" ) ,
+  (107 , "computer science" ) ; 
+  select * from course ; 
+  
+  select * 
+  from student  as s 
+  inner join course as c 
+  on s.id = c.id ;
+  
+  select * 
+  from student  as s 
+ right  join course as c 
+  on s.id = c.id ;
+   
+   
+    select * 
+  from student  as s 
+ right join course as c 
+  on s.id = c.id 
+  union 
+   select * 
+  from student  as s 
+ left  join course as c 
+  on s.id = c.id ;
+   
+   select * from student as s 
+   right  join course as c 
+   on s.id = c.id 
+   where s.id is not null  ; 
+   
+   
+   select * from student as a 
+   join student as b 
+   on a.id = b.id ; 
+   
+   select * from student ; 
+ 
+ create table employee (
+ id int primary key , 
+ name varchar(50) , 
+ manager_id int 
+ ); 
+ 
+ insert into employee ( id , name , manager_id ) 
+ values 
+ (101 , "ali" , 103 ) 
+ , (102 , "Bilal" , 104 ) , 
+ (103 , "charm" , null ) , 
+ (104 , "donald" , 103 ) ; 
+ select * from employee ; 
+ 
+ select * from employee as a 
+ join employee as b 
+ on a.id = b.manager_id ; 
+ 
+  select a.name , b.name 
+  from employee as a 
+ join employee as b 
+ on a.id = b.manager_id ; 
+ 
+  
+  select a.name as manager_name , b.name as normal_employee_name 
+  from employee as a 
+ join employee as b 
+ on a.id = b.manager_id ; 
+ 
+ select name from employee 
+ union 
+ select name from student ; 
+ 
+ 
+  select name from employee 
+ union all
+ select name from student ; 
+ 

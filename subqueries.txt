@@ -1,0 +1,45 @@
+create database college ;
+ use college ; 
+  
+  create table student (
+   id int primary key,
+   name varchar(50),
+   marks int not null ,
+   grade varchar(1) ,
+   city varchar(28) 
+   );
+    
+    insert into student 
+   (id, name , marks, grade , city ) 
+   values 
+   (101, "ali" , 78 , "C" , "Lahore" ) ,
+    (102, "saagar", 93 , "A" , "isb" ) ,
+    (103, "hamza" , 85 , "B" , "isb" ) ,
+    (104, "tayyab" , 96 , "A" , "gujrat" ),
+    (105, "abdullah" , 92 , "A" , "gujrat" ),
+    (106, "adil" , 82 , "B" , "gujrat" ) ;
+    
+   
+ /* this is comment */
+ -- this is also a comment 
+ 
+ select  id , name 
+ from student
+ where marks > ( select avg(marks)from student  ) ;
+ 
+  select  id , name 
+ from student
+ where  id % 2 = 0 ; 
+ 
+ select *
+ from student
+ where city = "gujrat" ; 
+ 
+ select max(marks) 
+ from  (select * from student where city = "gujrat") as temp ; 
+ 
+ create view view1 as 
+ select id , name , marks , grade from student ; 
+ 
+ drop view view1 ; 
+ 

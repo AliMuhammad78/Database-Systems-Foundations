@@ -1,0 +1,73 @@
+create database college ;
+ use college ; 
+  
+   create table student (
+   id int primary key,
+   name varchar(50),
+   marks int not null ,
+   grade varchar(1) ,
+   city varchar(28) 
+   );
+    
+    insert into student 
+   (id, name , marks, grade , city ) 
+   values 
+   (101, "ali" , 78 , "C" , "Lahore" ) ,
+    (102, "saagar", 93 , "A" , "isb" ) ,
+    (103, "hamza" , 85 , "B" , "isb" ) ,
+    (104, "tayyab" , 96 , "A" , "gujrat" ),
+    (105, "abdullah" , 12 , "F" , "gujrat" ),
+    (106, "adil" , 82 , "B" , "gujrat" ) ;
+   
+
+create table dept (
+id int primary key ,
+name varchar ( 50)  
+);
+
+create table teacher (
+id int primary key , 
+name varchar (50) , 
+dep_id int , 
+foreign key (dep_id )  references dept (id) 
+on update cascade 
+on delete cascade
+) ;
+
+ 
+    insert into dept 
+    values 
+    (101 , "science" ) ,
+     (102 , "IT" ) ;
+     
+     select * from dept ; 
+     
+     insert into teacher 
+     values (101, "Adam" , 101) , 
+     (102, "Ali"  , 102 ) ; 
+     
+     select * from teacher ;    
+     update dept 
+     set name = "Computer Science" 
+     where  name = "IT" ; 
+     
+     select * from dept ;
+     
+       update dept 
+     set   id = 103  
+     where  name = " computer Science " ; 
+     select * from dept ; 
+     
+      update dept 
+     set   id = 103  
+     where id = 102 ; 
+     
+     select * from dept ; 
+     select * from teacher ; 
+     
+        update dept 
+     set   id = 111  
+     where id = 101 ; 
+     
+     select * from dept ; 
+     select * from teacher ; 
